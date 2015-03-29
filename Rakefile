@@ -28,8 +28,8 @@ end
 
 task :help do
   puts 'Hello! That program can be used for encoding and decoding 64-bit block with DES algorithm.'
-  puts 'To encode block you should place it to env-variable BLOCKTOENCODE and call encode task with "rake encode".'
-  puts 'To decode block you should place it to env-variable BLOCKTODECODE and call encode task with "rake decode".'
+  puts 'To encode block you should place it to algorithm_parameters.rb and call encode task with "rake encode".'
+  puts 'To encode and decode block you should place it to algorithm_parameters.rb and call encode task with "rake encode_and_decode".'
 end
 
 task :default => :help
