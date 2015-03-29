@@ -2,8 +2,28 @@ module DES
 
   class AlgorithmParameters
 
+    def self.get_block_to_decode
+      @@block_to_decode
+    end
+
+    def self.set_block_to_decode(block)
+      @@block_to_decode = block
+    end
+
+    def self.get_block_to_encode
+      "BaUmAnKa"
+    end
+
+    def self.get_round_keys
+      @@round_keys
+    end
+
+    def self.set_round_keys(keys)
+      @@round_keys = keys
+    end
+
     def self.get_key
-      'aLgOrItM'
+      'kLuChIcK'
     end
 
     def self.get_start_permutation
@@ -20,7 +40,7 @@ module DES
        14,  6, 61, 53, 45, 37, 29, 21, 13,  5, 28, 20, 12,  4]
     end
 
-    def self.get_key_left_shift
+    def self.get_key_shift
       [ 2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17,
        18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,  1, 29, 30, 31, 32]
     end
@@ -97,9 +117,9 @@ module DES
 
     def self.get_inverse_permutation
       [40, 8, 48, 16, 56, 24, 64, 32, 39, 7, 47, 15, 55, 23, 63, 31,
-       38, 6, 46, 14, 53, 22, 62, 30, 37, 5, 45, 13, 53, 21, 61, 29,
-       36, 4, 44, 12, 51, 20, 60, 28, 35, 3, 43, 11, 51, 19, 59, 27,
-       34, 2, 42, 10, 49, 18, 58, 26, 33, 1, 41,  9, 49, 17, 57, 25]
+       38, 6, 46, 14, 54, 22, 62, 30, 37, 5, 45, 13, 53, 21, 61, 29,
+       36, 4, 44, 12, 52, 20, 60, 28, 35, 3, 43, 11, 51, 19, 59, 27,
+       34, 2, 42, 10, 50, 18, 58, 26, 33, 1, 41,  9, 49, 17, 57, 25]
     end
   end
 end

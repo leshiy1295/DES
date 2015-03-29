@@ -1,22 +1,27 @@
-#!/usr/bin/env euby
+#!/usr/bin/env ruby
 
 require_relative 'src/encoder'
 require_relative 'src/decoder'
+require_relative 'src/algorithm_parameters'
 
 def get_block_to_encode
-  ENV['BLOCKTOENCODE']
+  DES::AlgorithmParameters.get_block_to_encode
 end
 
 def get_block_to_decode
-  ENV['BLOCKTODECODE']
+  DES::AlgorithmParameters.get_block_to_decode
 end
 
-task :encode do
+task :create_round_keys do
+  DES::AlgorithmHelper.create_round_keys
+end
+
+task :encode => :create_round_keys do
     block = get_block_to_encode
     DES::Encoder.encode(block)
 end
 
-task :decode do
+task :encode_and_decode => :encode do
     block = get_block_to_decode
     DES::Decoder.decode(block)
 end
